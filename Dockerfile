@@ -6,7 +6,7 @@ RUN apt install -y libldap2-dev rng-tools libbz2-dev zlib1g-dev libsqlite3-dev l
 RUN apt install -y make wget file pinentry-tty ca-certificates lbzip2 bzip2 gcc
 RUN apt clean
 
-ARG GPG_VERSION=2.2.3
+ARG GPG_VERSION=2.2.17
 ENV GPG_VERSION "gnupg-$GPG_VERSION"
 
 ADD . /app/
