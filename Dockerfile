@@ -9,12 +9,13 @@ RUN apt clean
 ARG GPG_VERSION=2.2.17
 ENV GPG_VERSION "gnupg-$GPG_VERSION"
 
-ADD . /app/
+ADD ./download_and_compile.mk /app/
 WORKDIR /app/
 
 RUN make -f /app/download_and_compile.mk all
 
 RUN gpg -K
+ADD ./gpg-agent.conf ./scdaemon.conf /app/
 COPY gpg-agent.conf /root/.gnupg/gpg-agent.conf
 COPY scdaemon.conf /root/.gnupg/scdaemon.conf
 
