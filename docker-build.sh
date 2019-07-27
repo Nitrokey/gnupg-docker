@@ -11,7 +11,7 @@ echo ==== Building Production Tool Docker image
 echo
 
 echo $@
-docker build $@ -t gpg . 
+docker build "$@" -t gpg . -f ./Dockerfile.test-suite
 
 rm test-suite.zip -v
 yes | wget -c -O test-suite.zip https://github.com/Nitrokey/nitrokey-test-suite/archive/master.zip
