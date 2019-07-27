@@ -8,7 +8,7 @@ fi
 echo === Closing working pcscd on host
 killall pcscd scdaemon
 
-DR="docker run -it  --privileged -v /dev:/dev --net=host -v ${PWD}:/app  gpg:latest"
+DR="docker run -it --rm  --privileged -v /dev:/dev --net=host -v ${PWD}:/app  gpg:latest"
 if [ -z "$1" ]; then
     # no arguments - run shell
     ${DR} /bin/bash
