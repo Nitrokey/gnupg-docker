@@ -6,3 +6,5 @@ gpg-connect-agent /bye
 pcscd
 #/usr/local/libexec/scdaemon --daemon
 gpg --card-edit
+
+echo "File ./scdaemon.log contains the current log of GnuPG communication with the smart card device."
