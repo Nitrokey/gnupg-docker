@@ -3,4 +3,6 @@ gpg -K
 
 gpg-connect-agent /bye
 pcscd
-env GPG_TTY=$(tty) behave -s --no-capture --no-capture-stderr 
+cd nitrokey-test-suite-master || exit
+# env GPG_TTY=$(tty) 
+behave -s --no-capture --no-capture-stderr  -x
