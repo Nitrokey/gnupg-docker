@@ -17,5 +17,9 @@ RUN gpg -K
 ADD ./gpg-agent.conf ./scdaemon.conf /app/
 COPY gpg-agent.conf /root/.gnupg/gpg-agent.conf
 COPY scdaemon.conf /root/.gnupg/scdaemon.conf
+# ADD . /app/
+
+RUN apt install -y python3 python3-pip
+RUN pip3 install behave pexpect
 
 CMD ["/bin/bash", "/app/start-within-container.sh"]
