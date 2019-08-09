@@ -13,7 +13,8 @@ echo
 echo $@
 docker build "$@" -t gpg . -f ./Dockerfile.test-suite
 
-rm test-suite.zip -v
-yes | wget -c -O test-suite.zip https://github.com/Nitrokey/nitrokey-test-suite/archive/master.zip
-yes | unzip test-suite.zip
+#rm test-suite.zip -v
+#yes | wget -c -O test-suite.zip https://github.com/Nitrokey/nitrokey-test-suite/archive/master.zip
+#yes | unzip test-suite.zip
 
+git clone https://github.com/Nitrokey/nitroinit.git --recursive

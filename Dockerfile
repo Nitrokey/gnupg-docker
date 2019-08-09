@@ -18,4 +18,8 @@ ADD ./gpg-agent.conf ./scdaemon.conf /app/
 COPY gpg-agent.conf /root/.gnupg/gpg-agent.conf
 COPY scdaemon.conf /root/.gnupg/scdaemon.conf
 
+RUN apt install -y psmisc python3 python3-pip python3-pyscard python3-cryptography
+# avoid installing distro's gpgme by installing only bindings
+RUN pip3 install python-gnupg
+
 CMD ["/bin/bash", "/app/start-within-container.sh"]

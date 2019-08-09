@@ -6,7 +6,10 @@ if [ "$EUID" != "0" ]; then
 fi
 
 echo === Closing working pcscd on host
-killall pcscd scdaemon
+gpgconf --kill gpg-agent # GnuPG
+sudo systemctl stop pcscd  # OpenSC
+#apt install -y psmisc
+sudo killall pcscd scdaemon
 
 DR="docker run -it --rm  --privileged -v /dev:/dev --net=host -v ${PWD}:/app  gpg:latest"
 if [ -z "$1" ]; then
