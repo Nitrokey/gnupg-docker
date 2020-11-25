@@ -5,8 +5,9 @@ if [ "$EUID" != "0" ]; then
 	exec sudo bash $0 $@
 fi
 
-echo === Closing working pcscd on host
+echo === Closing working smart card services on host
 systemctl stop pcscd pcscd.socket
+gpgconf --kill all
 killall pcscd scdaemon
 
 DR="docker run -it  --privileged -v /dev:/dev --net=host -v ${PWD}:/app  gpg:latest"
