@@ -7,7 +7,7 @@ fi
 
 
 echo
-echo ==== Building Production Tool Docker image
+echo ==== Building Docker image
 echo
 
 docker build -t gpg . $@

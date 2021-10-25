@@ -9,7 +9,7 @@ echo
 echo ==== Cleaning up unused Docker data
 echo
 
-echo ==== Remove earlier versions of prod1 images
+echo ==== Remove earlier versions of images
 docker images | grep "gpg" | awk '{print $1}' | xargs docker rm
 
 echo ==== Cleaning up exited containers
